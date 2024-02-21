@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/TestCanvasWegbl/static/css/main.afbec150.css",
-    "main.js": "/TestCanvasWegbl/static/js/main.0380f309.js",
-    "index.html": "/TestCanvasWegbl/index.html",
-    "main.afbec150.css.map": "/TestCanvasWegbl/static/css/main.afbec150.css.map",
-    "main.0380f309.js.map": "/TestCanvasWegbl/static/js/main.0380f309.js.map"
+    "main.css": "/static/css/main.afbec150.css",
+    "main.js": "/static/js/main.604b97ad.js",
+    "index.html": "/index.html",
+    "main.afbec150.css.map": "/static/css/main.afbec150.css.map",
+    "main.604b97ad.js.map": "/static/js/main.604b97ad.js.map"
   },
   "entrypoints": [
     "static/css/main.afbec150.css",
-    "static/js/main.0380f309.js"
+    "static/js/main.604b97ad.js"
   ]
 }
