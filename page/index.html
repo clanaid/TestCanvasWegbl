@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TestCanvasWegbl</title>
+  </head>
+  <body>
+    <div>
+      <button id="btn">渲染</button>
+      <p>Canvas draw webgl canvas</p>
+      <canvas id="cavs" style="width: 300px; height: 168px"></canvas>
+      <p>Canvas webgl raw</p>
+      <div id="mdiv"></div>
+    </div>
+    <script type="module">
+      import YUVCanvas from "./yuv-canvas.js";
+      const canvas = document.getElementById("cavs");
+      const myDiv = document.getElementById("mdiv");
+      const btn = document.getElementById("btn");
+      const renderImg = (data) => {
+        const w = 1024;
+        const h = 576;
+        const ctx = canvas.getContext("2d");
+        const tmp = YUVCanvas.draw(w, h, new Uint8Array(data));
+        const screenRatio = window.devicePixelRatio || 1;
+        canvas.width = Math.floor(300 * screenRatio);
+        canvas.height = Math.floor(168 * screenRatio);
+        ctx.save();
+        ctx.scale(screenRatio, screenRatio);
+        ctx.drawImage(tmp, 0, 0, w, h, 0, 0, 300, 168);
+        ctx.restore();
+
+        console.log(tmp);
+        myDiv.appendChild(tmp);
+      };
+
+      function btnClick() {
+        fetch("./raw2023111601.data", {
+          responseType: "arraybuffer",
+        })
+          .then((rest) => rest.arrayBuffer())
+          .then((data) => renderImg(data));
+      }
+
+      document.body.onload = () => {
+        document.getElementById("btn").onclick = btnClick;
+      };
+    </script>
+  </body>
+</html>
